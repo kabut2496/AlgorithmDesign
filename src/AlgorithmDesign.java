@@ -38,6 +38,10 @@ public class AlgorithmDesign extends javax.swing.JFrame {
         PrimeInput = new javax.swing.JTextField();
         Enter2 = new javax.swing.JButton();
         PrimeOutput = new javax.swing.JLabel();
+        fibinachiLable = new javax.swing.JLabel();
+        fibinachiInput = new javax.swing.JTextField();
+        fibinachiOutPut = new javax.swing.JLabel();
+        fibinachiButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -70,6 +74,23 @@ public class AlgorithmDesign extends javax.swing.JFrame {
         Enter2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Enter2ActionPerformed(evt);
+            }
+        });
+
+        fibinachiLable.setText("Enter a number and click enter button to find the fibinach siquance");
+
+        fibinachiInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fibinachiInputActionPerformed(evt);
+            }
+        });
+
+        fibinachiOutPut.setText(" ");
+
+        fibinachiButton.setText("Enter");
+        fibinachiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fibinachiButtonActionPerformed(evt);
             }
         });
 
@@ -106,8 +127,21 @@ public class AlgorithmDesign extends javax.swing.JFrame {
                         .addComponent(Enter2)
                         .addGap(209, 209, 209))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(PrimeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(PrimeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(fibinachiLable, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fibinachiInput, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(fibinachiButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(fibinachiOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,7 +165,15 @@ public class AlgorithmDesign extends javax.swing.JFrame {
                 .addComponent(Enter2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PrimeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fibinachiLable)
+                    .addComponent(fibinachiInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(fibinachiButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fibinachiOutPut)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -150,7 +192,7 @@ public class AlgorithmDesign extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -201,6 +243,37 @@ public class AlgorithmDesign extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Enter2ActionPerformed
 
+    private void fibinachiInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fibinachiInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fibinachiInputActionPerformed
+
+    private void fibinachiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fibinachiButtonActionPerformed
+        try{
+           int a,b,num;
+           a=0;
+           b=1;
+           num=0;
+           num=Integer.parseInt(fibinachiInput.getText());
+           
+           for (double i=1; i<(double)num;i+=1){
+               if((i%2)==0){
+                   a=a+b;
+               }else if ((i%2)==1){
+                   b=b+a;
+               }
+           }
+           if(a>b){
+             fibinachiOutPut.setText("the fibinachi you want is "+a);  
+           }
+           if(b>a){
+               fibinachiOutPut.setText("the fibinachi you want is "+b);
+           }
+           
+        }catch(NumberFormatException nfe){
+            System.err.println("there was a eror please try again "+nfe);
+        }
+    }//GEN-LAST:event_fibinachiButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +317,10 @@ public class AlgorithmDesign extends javax.swing.JFrame {
     private javax.swing.JTextField factorialInput;
     private javax.swing.JLabel factorialLabal;
     private javax.swing.JLabel factorialOutput;
+    private javax.swing.JButton fibinachiButton;
+    private javax.swing.JTextField fibinachiInput;
+    private javax.swing.JLabel fibinachiLable;
+    private javax.swing.JLabel fibinachiOutPut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
